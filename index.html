@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Olivia Luchini — Graphiste</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700&family=Yeseva+One&display=swap" rel="stylesheet">
+<style>
+/* ---- TAN-HEADLINE fallback chain: if installed locally it's used, otherwise Yeseva One ---- */
+@font-face{
+  font-family:'TAN-HEADLINE';
+  src: local('TAN-HEADLINE'), local('TAN Headline'), local('TAN-HEADLINE Regular');
+  font-display:swap;
+}
+:root{
+  --cream:#fcf4ec;
+  --blue:#98b6ec;
+  --ink:#000000;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--cream);color:var(--ink);font-family:'Darker Grotesque',sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html{scroll-behavior:smooth}
+body{line-height:1.45;font-size:17px}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+.display{font-family:'TAN-HEADLINE','Yeseva One',serif;font-weight:400;color:var(--blue);letter-spacing:-0.01em;line-height:.95}
+.mono{font-family:'Darker Grotesque',sans-serif;font-weight:500;letter-spacing:0.04em}
+
+/* ——— Paperclip chip ——— */
+.clip{display:inline-flex;align-items:center;gap:8px;border:1.2px solid var(--blue);border-radius:999px;padding:4px 14px;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue);background:var(--cream)}
+.clip svg{width:14px;height:14px}
+
+/* ——— Fixed UI chrome ——— */
+.nav{position:fixed;top:0;left:0;right:0;z-index:80;display:flex;justify-content:space-between;align-items:center;padding:22px 40px;background:var(--cream);border-bottom:1px solid rgba(0,0,0,0.06)}
+.nav .brand{font-family:'TAN-HEADLINE','Yeseva One',serif;font-size:20px;color:var(--blue);text-transform:uppercase;letter-spacing:0.04em}
+.nav ul{list-style:none;display:flex;gap:28px;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;font-weight:500}
+.nav ul a{color:var(--ink);transition:color .2s}
+.nav ul a:hover{color:var(--blue)}
+
+/* ——— HERO ——— */
+.hero{position:relative;min-height:100vh;padding:120px 40px 60px;display:flex;flex-direction:column;overflow:hidden;background:var(--cream)}
+.hero .year{position:absolute;top:92px;right:40px;font-size:13px;color:var(--blue);letter-spacing:0.2em;font-weight:500}
+
+.hero-top{position:relative;z-index:3;display:flex;flex-direction:column;gap:22px;margin-top:8px}
+
+.hero .role-strip{display:flex;align-items:center;gap:16px;font-size:14px;letter-spacing:0.24em;text-transform:uppercase;color:var(--blue);font-weight:500}
+.hero .role-strip .line{height:1px;width:80px;background:var(--blue)}
+
+.hero h1{font-family:'TAN-HEADLINE','Yeseva One',serif;font-weight:400;font-size:clamp(100px,18vw,340px);line-height:.86;letter-spacing:-0.03em;color:var(--blue);position:relative;text-transform:uppercase}
+.hero h1 .r1, .hero h1 .r2{display:block}
+.hero h1 .r2{padding-left:12vw}
+
+.hero .ball{position:absolute;width:34vmin;height:34vmin;border-radius:50%;background:var(--blue);right:6vmin;top:28vh;z-index:1;will-change:transform}
+
+.hero-bottom{display:flex;justify-content:space-between;align-items:flex-end;margin-top:auto;padding-top:60px;gap:40px;position:relative;z-index:3}
+.hero-bottom .intro{max-width:44ch;font-size:18px;line-height:1.5;color:var(--ink)}
+.hero .meta-grid{display:grid;grid-template-columns:repeat(4,minmax(0,160px));gap:28px}
+.hero .meta-grid .cell{font-size:13px;color:var(--ink)}
+.hero .meta-grid .cell .label{display:flex;align-items:center;gap:6px;color:var(--blue);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:6px;font-weight:500}
+.hero .meta-grid .cell .label::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--blue);display:inline-block}
+.hero .meta-grid .cell .val{font-family:'TAN-HEADLINE','Yeseva One',serif;font-size:20px;color:var(--blue)}
+
+.scroll-cue{display:flex;align-items:center;gap:12px;font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--blue);font-weight:500;margin-top:24px}
+.scroll-cue .dot{width:6px;height:6px;background:var(--blue);border-radius:50%;animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+
+/* ——— ABOUT ——— */
+.about{position:relative;padding:160px 40px 180px;background:var(--cream);border-top:1px solid rgba(0,0,0,0.06)}
+.about .wrap{max-width:1500px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:100px}
+.about .eyebrow{font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:var(--blue);margin-bottom:36px;display:flex;align-items:center;gap:12px;font-weight:500}
+.about .eyebrow::before{content:"";width:40px;height:1px;background:var(--blue)}
+.about h2{font-family:'TAN-HEADLINE','Yeseva One',serif;font-weight:400;font-size:clamp(52px,6vw,110px);line-height:.95;letter-spacing:-0.02em;color:var(--blue)}
+.about .lead{font-family:'TAN-HEADLINE','Yeseva One',serif;font-size:clamp(26px,2.4vw,38px);line-height:1.25;margin-top:24px;max-width:22ch;color:var(--blue)}
+.about .body{font-size:17px;line-height:1.6;color:var(--ink);max-width:46ch;margin-top:28px}
+.about .skills{display:flex;flex-direction:column;border-top:1px solid rgba(0,0,0,0.15);margin-top:56px}
+.about .skills .row{display:grid;grid-template-columns:42px 1fr auto;gap:24px;padding:22px 0;border-bottom:1px solid rgba(0,0,0,0.15);align-items:center;transition:padding .3s}
+.about .skills .row:hover{padding-left:12px}
+.about .skills .n{font-size:12px;color:var(--blue);letter-spacing:0.14em;font-weight:500}
+.about .skills .t{font-family:'TAN-HEADLINE','Yeseva One',serif;font-size:30px;color:var(--blue)}
+.about .skills .tag{font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink);font-weight:500}
+
+/* ——— SECTION DIVIDER ——— */
+.divider{padding:120px 40px 140px;background:var(--cream);text-align:center;border-top:1px solid rgba(0,0,0,0.06)}
+.divider .sub{font-size:12px;letter-spacing:0.32em;text-transform:uppercase;color:var(--blue);margin-bottom:24px;font-weight:500}
+.divider h2{font-family:'TAN-HEADLINE','Yeseva One',serif;font-weight:400;letter-spacing:-0.03em;line-height:.9;color:var(--blue);margin-bottom:64px}
+.sommaire{display:flex;flex-direction:column;max-width:900px;margin:0 auto;border-top:1px solid rgba(0,0,0,0.12)}
+.sommaire a{display:grid;grid-template-columns:40px 1fr auto;align-items:center;gap:16px;padding:13px 0;border-bottom:1px solid rgba(0,0,0,0.08);text-decoration:none;transition:padding .2s,opacity .2s;opacity:.8}
+.sommaire a:hover{padding-left:10px;opacity:1}
+.sommaire .s-idx{font-family:'Darker Grotesque',sans-serif;font-weight:500;font-size:11px;color:var(--blue);letter-spacing:0.14em}
+.sommaire .s-title{font-family:'TAN-HEADLINE','Yeseva One',serif;font-weight:400;font-size:clamp(16px,1.6vw,22px);color:var(--blue);text-align:left}
+.sommaire .s-cat{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink);font-weight:500;opacity:.45;white-space:nowrap}
+
+/* ——— PROJECT SECTIONS (non-overlapping, each distinct) ——— */
+.project{position:relative;padding:140px 40px;background:var(--cream);border-top:1px solid rgba(0,0,0,0.08)}
+.project .header{max-width:1500px;margin:0 auto 80px;display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:end}
+.project .idx{font-size:14px;color:var(--blue);letter-spacing:0.12em;font-weight:500}
+.project .cat{font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:var(--blue);font-weight:500;justify-self:end}
+.project .title{grid-column:1 / -1;font-family:'TAN-HEADLINE','Yeseva One',serif;font-weight:400;font-size:clamp(56px,7.5vw,140px);letter-spacing:-0.02em;line-height:.92;color:var(--blue);margin-top:24px}
+
+.project .intro{max-width:1500px;margin:0 auto 80px;display:grid;grid-template-columns:1.2fr 1fr;gap:80px;align-items:start}
+.project .desc{font-size:18px;line-height:1.55;color:var(--ink);max-width:52ch}
+.project .kvs{display:grid;grid-template-columns:1fr 1fr;gap:20px 28px}
+.project .kvs .k{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);margin-bottom:6px;font-weight:500}
+.project .kvs .v{font-family:'TAN-HEADLINE','Yeseva One',serif;font-size:20px;color:var(--blue)}
+
+/* asymmetric mosaic gallery: each image independent but part of same layout */
+.gallery{max-width:1500px;margin:0 auto;display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
+.gallery .img{position:relative;overflow:hidden;background:var(--cream);opacity:0;transform:translateY(40px);transition:opacity 1s cubic-bezier(.22,.61,.36,1),transform 1s cubic-bezier(.22,.61,.36,1)}
+.gallery .img.in{opacity:1;transform:translateY(0)}
+.gallery .img img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.gallery .img:hover img{transform:scale(1.03)}
+.gallery .img.contain{background:var(--cream-2,#f0e6d8)}
+.gallery .img.contain img{object-fit:contain;padding:32px}
+.gallery .img.bare{background:transparent}
+.gallery .img.bare img{object-fit:contain}
+.gallery .img.dark{background:#2a2635}
+.gallery .img.dark img{object-fit:cover}
+.gallery .caption{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);margin-top:10px;font-weight:500}
+
+/* ——— CONTACT (CV style) ——— */
+.contact{position:relative;padding:160px 40px;background:var(--cream);border-top:1px solid rgba(0,0,0,0.06)}
+.contact .inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.contact h2{font-family:'TAN-HEADLINE','Yeseva One',serif;font-weight:400;font-size:clamp(56px,6vw,120px);letter-spacing:-0.02em;line-height:.95;color:var(--blue)}
+.contact .side a{display:flex;justify-content:space-between;align-items:center;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.15);font-family:'TAN-HEADLINE','Yeseva One',serif;font-weight:400;font-size:24px;color:var(--blue);transition:padding .3s}
+.contact .side a:hover{padding-left:20px}
+.contact .side a span{font-size:12px;font-family:'Darker Grotesque',sans-serif;color:var(--blue);letter-spacing:0.2em;text-transform:uppercase;font-weight:500}
+
+footer{background:var(--cream);padding:32px 40px;display:flex;justify-content:space-between;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink);font-weight:500;border-top:1px solid rgba(0,0,0,0.08)}
+
+/* ——— Reveal ——— */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+/* progress */
+.progress{position:fixed;bottom:0;left:0;right:0;height:2px;background:transparent;z-index:90}
+.progress .bar{height:100%;background:var(--blue);width:0%}
+
+@media (max-width:900px){
+  .nav{padding:14px 18px}
+  .nav ul{gap:14px;font-size:12px}
+  .hero{padding:110px 20px 40px}
+  .hero h1 .r2{padding-left:0}
+  .hero .meta-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-bottom{flex-direction:column;align-items:flex-start}
+  .about{padding:100px 20px}
+  .about .wrap{grid-template-columns:1fr;gap:48px}
+  .project{padding:80px 20px}
+  .project .intro{grid-template-columns:1fr;gap:32px}
+  .project .header{grid-template-columns:auto auto;gap:16px}
+  .project .title{font-size:48px}
+  .contact{padding:120px 20px}
+  .contact .inner{grid-template-columns:1fr;gap:40px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="#top" class="brand">Olivia Luchini</a>
+  <ul>
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#works">Projets</a></li>
+    <li><a href="cv.html">CV</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="top" class="hero">
+  <div class="year">©2026 — PORTFOLIO</div>
+
+  <div class="hero-top">
+    <div class="role-strip">
+      <span class="line"></span>
+      <span>Graphiste</span>
+    </div>
+
+    <h1>
+      <span class="r1">Olivia</span>
+      <span class="r2">Luchini</span>
+    </h1>
+  </div>
+
+
+  <div class="hero-bottom">
+    <div>
+      <p class="intro reveal">Graphiste basée à Paris, en 3ᵉ année de Bachelor à l'ESDAC. Je transforme des concepts en solutions visuelles percutantes — de l'identité au packaging, en passant par l'édition.</p>
+      <div class="scroll-cue"><span class="dot"></span>Scroll pour découvrir</div>
+    </div>
+    <div class="meta-grid reveal">
+      <div class="cell">
+        <div class="label">Rôle</div>
+        <div class="val">Designer graphique</div>
+      </div>
+      <div class="cell">
+        <div class="label">Basée à</div>
+        <div class="val">Paris, France</div>
+      </div>
+      <div class="cell">
+        <div class="label">Formation</div>
+        <div class="val">ESDAC · Bachelor</div>
+      </div>
+      <div class="cell">
+        <div class="label">Actuellement</div>
+        <div class="val">CNOEC · alternance</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow reveal">À propos · 01</div>
+      <h2 class="reveal">Je transforme des concepts en solutions visuelles percutantes.</h2>
+    </div>
+    <div>
+      <p class="lead reveal">Passionnée et rigoureuse, je construis des systèmes visuels cohérents.</p>
+      <p class="body reveal">De la conception d'un packaging à la refonte d'une charte institutionnelle, j'aime composer avec une typographie soignée, une palette maîtrisée et une attention au détail qui survit à l'impression. J'évolue entre projets scolaires, stages et alternance — en ce moment au sein du Conseil National de l'Ordre des Experts-Comptables.</p>
+
+      <div class="skills reveal">
+        <div class="row" style="width: 509px"><span class="n">01</span><span class="t">Identité visuelle</span><span class="tag">Charte · Logo · Système</span></div>
+        <div class="row" style="width: 521px"><span class="n">02</span><span class="t">Édition &amp; Print</span><span class="tag">Rapports · Brochures · Affiches</span></div>
+        <div class="row" style="width: 512px"><span class="n">03</span><span class="t">Packaging</span><span class="tag">Boisson · Alimentaire · Objet</span></div>
+        <div class="row" style="width: 530px"><span class="n">04</span><span class="t">Typographie</span><span class="tag">Dessin de caractère · Spécimen</span></div>
+        <div class="row" style="width: 186px"><span class="n">05</span><span class="t">Motion &amp; 3D</span><span class="tag">After Effects · Blender</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<section class="divider" id="works">
+  <div class="sub reveal">Sélection 2024—2026 · 10 projets</div>
+  <h2 class="reveal" style="font-size:clamp(40px,7vw,110px)">Projets.</h2>
+  <nav class="sommaire reveal">
+    <a href="#proj-01"><span class="s-idx">01</span><span class="s-title">La Fabrique de Parapluies François Frères</span><span class="s-cat">Identité · Luxe</span></a>
+    <a href="#proj-02"><span class="s-idx">02</span><span class="s-title">Grain &amp; Trame</span><span class="s-cat">Identité · Coffee</span></a>
+    <a href="#proj-03"><span class="s-idx">03</span><span class="s-title">Pick Studio</span><span class="s-cat">Édition · Print</span></a>
+    <a href="#proj-04"><span class="s-idx">04</span><span class="s-title">Tyler Mitchell × MEP</span><span class="s-cat">Édition · Exposition</span></a>
+    <a href="#proj-05"><span class="s-idx">05</span><span class="s-title">Crocs × KAWS</span><span class="s-cat">Packaging · Pop</span></a>
+    <a href="#proj-06"><span class="s-idx">06</span><span class="s-title">Le Chocolat des Français</span><span class="s-cat">Packaging · Illustration</span></a>
+    <a href="#proj-07"><span class="s-idx">07</span><span class="s-title">Galbée Arrondie</span><span class="s-cat">Typographie</span></a>
+    <a href="#proj-08"><span class="s-idx">08</span><span class="s-title">Ma Petite Française</span><span class="s-cat">Identité · Packaging</span></a>
+    <a href="#proj-09"><span class="s-idx">09</span><span class="s-title">Scène 3D Blender</span><span class="s-cat">3D · Motion</span></a>
+    <a href="#proj-10"><span class="s-idx">10</span><span class="s-title">SIC Mag — Pubs internes</span><span class="s-cat">Institution · Print</span></a>
+  </nav>
+</section>
+
+<!-- ============================ PROJECT 01 ============================ -->
+<article class="project" id="proj-01">
+  <div class="header">
+    <span class="idx">01 / 10</span>
+    <span class="cat">Identité · Luxe</span>
+    <h3 class="title reveal">La Fabrique de Parapluies François Frères.</h3>
+  </div>
+  <div class="intro">
+    <p class="desc reveal">Maison historique fondée en 1882, François Frères est l'architecte du parapluie de luxe français. Entre savoir-faire ancestral et ingénierie de précision, elle façonne des pièces d'exception conçues comme de véritables armures urbaines. J'ai opéré une refonte globale de l'identité de marque afin d'inscrire cet héritage dans les codes esthétiques contemporains — dépoussiérer l'image de l'artisanat traditionnel pour capter une clientèle plus jeune et cosmopolite.</p>
+    <div class="kvs reveal">
+      <div><div class="k">Client</div><div class="v">François Frères</div></div>
+      <div><div class="k">Année</div><div class="v">2024</div></div>
+      <div><div class="k">Scope</div><div class="v">Identité globale</div></div>
+      <div><div class="k">Catégorie</div><div class="v">Luxe · Artisanat</div></div>
+    </div>
+  </div>
+  <div class="gallery">
+    <div class="img" style="grid-column:span 8;aspect-ratio:3/2"><img src="a_garder/francois_4.png" alt="Scène urbaine François Frères"></div>
+    <div class="img contain" style="grid-column:span 4;aspect-ratio:2/3"><img src="a_garder/francois_2.png" alt="Logo François Frères debout" style="padding: 0px"></div>
+    <div class="img contain" style="grid-column:span 5;aspect-ratio:3/2"><img src="a_garder/francois_1.png" alt="Identité François Frères" style="padding: 0px"></div>
+    <div class="img contain" style="grid-column:span 7;aspect-ratio:3/2"><img src="a_garder/francois_3.png" alt="Détail tablier atelier" style="padding:19.8281px"></div>
+  </div>
+</article>
+
+<!-- ============================ PROJECT 02 ============================ -->
+<article class="project" id="proj-02">
+  <div class="header">
+    <span class="idx">02 / 10</span>
+    <span class="cat">Identité · Coffee · Riso</span>
+    <h3 class="title reveal">Grain &amp; Trame.</h3>
+  </div>
+  <div class="intro">
+    <p class="desc reveal">Création de l'identité visuelle d'un espace hybride, réunissant un atelier de torréfaction de café de spécialité et un studio d'impression en Risographie. Le design célèbre la rencontre entre la matière organique et la rigueur mécanique. Un positionnement « Premium Technique » prend le contre-pied des codes traditionnels chaleureux du coffee shop pour assumer une esthétique industrielle, transparente et résolument tournée vers le processus de fabrication. Fortement inspiré du Design Suisse, le système graphique s'articule autour d'un monogramme fondé sur la superposition colorimétrique.</p>
+    <div class="kvs reveal">
+      <div><div class="k">Client</div><div class="v">Grain &amp; Trame</div></div>
+      <div><div class="k">Année</div><div class="v">2024</div></div>
+      <div><div class="k">Scope</div><div class="v">Identité · Signalétique</div></div>
+      <div><div class="k">Catégorie</div><div class="v">F&amp;B · Print</div></div>
+    </div>
+  </div>
+  <div class="gallery">
+    <div class="img" style="grid-column:span 7;aspect-ratio:4/3"><img src="a_garder/grain_trame_1.png" alt="Grain &amp; Trame — enseigne café"></div>
+    <div class="img" style="grid-column:span 5;aspect-ratio:4/3"><img src="a_garder/grain_trame_2.png" alt="Grain &amp; Trame — atelier"></div>
+    <div class="img" style="grid-column:span 8;aspect-ratio:3/2"><img src="a_garder/grain_trame_3.png" alt="Grain &amp; Trame — détail"></div>
+    <div class="img contain" style="grid-column:span 4;aspect-ratio:3/2"><img src="a_garder/grain_trame_4.png" alt="Grain &amp; Trame — identité" style="padding:0px"></div>
+    <div class="img contain" style="grid-column:span 3;aspect-ratio:5/7"><img src="a_garder/grain_trame_5.png" alt="Grain &amp; Trame — page A4" style="padding:0px"></div>
+    <div class="img contain" style="grid-column:span 3;aspect-ratio:5/7"><img src="a_garder/grain_trame_6.png" alt="Grain &amp; Trame — page A4" style="padding:0px"></div>
+    <div class="img contain" style="grid-column:span 3;aspect-ratio:5/7"><img src="a_garder/grain_trame_7.png" alt="Grain &amp; Trame — page A4" style="padding:0px"></div>
+    <div class="img contain" style="grid-column:span 3;aspect-ratio:5/7"><img src="a_garder/grain_trame_8.png" alt="Grain &amp; Trame — page A4" style="padding:0px"></div>
+  </div>
+</article>
+
+<!-- ============================ PROJECT 03 ============================ -->
+<article class="project" id="proj-03">
+  <div class="header">
+    <span class="idx">03 / 10</span>
+    <span class="cat">Édition · Print</span>
+    <h3 class="title reveal">Pick Studio.</h3>
+  </div>
+  <div class="intro">
+    <p class="desc reveal">Dans l'intimité de son atelier lillois, Nora façonne bien plus que de la terre : elle modèle des instants de douceur. Entre les silhouettes de teckels malicieux, les cerises gourmandes et les finitions pastels, ses créations célèbrent une esthétique « joyeuse » et artisanale. J'ai conçu une affiche et un dépliant qui traduisent visuellement le passage de la marque du digital vers un lieu de vie physique, pour l'inauguration de l'atelier.</p>
+    <div class="kvs reveal">
+      <div><div class="k">Client</div><div class="v">Pick Studio</div></div>
+      <div><div class="k">Année</div><div class="v">2025</div></div>
+      <div><div class="k">Scope</div><div class="v">Affiche · Dépliant</div></div>
+      <div><div class="k">Catégorie</div><div class="v">Céramique</div></div>
+    </div>
+  </div>
+  <div class="gallery">
+    <div class="img" style="grid-column:span 5;aspect-ratio:3/2"><img src="a_garder/pick_depliant_ferme.png" alt="Pick Studio — dépliant fermé"></div>
+    <div class="img" style="grid-column:span 7;aspect-ratio:3/2"><img src="a_garder/pick_affiche.png" alt="Pick Studio — affiche"></div>
+    <div class="img" style="grid-column:span 6;aspect-ratio:3/2"><img src="a_garder/pick_depliant_ouvert.png" alt="Pick Studio — dépliant ouvert"></div>
+    <div class="img" style="grid-column:span 6;aspect-ratio:3/2"><img src="a_garder/pick_depliant_verso.png" alt="Pick Studio — dépliant verso"></div>
+  </div>
+</article>
+
+<!-- ============================ PROJECT 04 ============================ -->
+<article class="project" id="proj-04">
+  <div class="header">
+    <span class="idx">04 / 10</span>
+    <span class="cat">Édition · Exposition</span>
+    <h3 class="title reveal">Tyler Mitchell × MEP.</h3>
+  </div>
+  <div class="intro">
+    <p class="desc reveal">Tyler Mitchell est un photographe américain incontournable, célèbre pour son esthétique solaire et poétique qui explore l'identité, la beauté et l'intimité de la communauté noire. À la croisée de la mode et de l'art contemporain, son travail se distingue par une quête de douceur et de liberté visuelle. Pour son exposition à la Maison Européenne de la Photographie, j'ai conçu deux dépliants d'accompagnement avec une mise en page épurée et lumineuse.</p>
+    <div class="kvs reveal">
+      <div><div class="k">Client</div><div class="v">MEP Paris</div></div>
+      <div><div class="k">Année</div><div class="v">2024</div></div>
+      <div><div class="k">Scope</div><div class="v">Édition · Exposition</div></div>
+      <div><div class="k">Catégorie</div><div class="v">Culture</div></div>
+    </div>
+  </div>
+  <div class="gallery">
+    <div class="img" style="grid-column:span 6;aspect-ratio:4/3"><img src="a_garder/tyler_depliant_1.png" alt="Tyler Mitchell MEP — dépliant 1"></div>
+    <div class="img" style="grid-column:span 6;aspect-ratio:4/3"><img src="a_garder/tyler_depliant_2.png" alt="Tyler Mitchell MEP — dépliant 2"></div>
+  </div>
+</article>
+
+<!-- ============================ PROJECT 05 ============================ -->
+<article class="project" id="proj-05">
+  <div class="header">
+    <span class="idx">05 / 10</span>
+    <span class="cat">Packaging · Pop</span>
+    <h3 class="title reveal">Crocs × KAWS.</h3>
+  </div>
+  <div class="intro">
+    <p class="desc reveal">Crocs est devenue une icône de la culture pop mondiale. KAWS, figure majeure de l'art contemporain et du streetwear, est célèbre pour ses personnages iconiques aux yeux marqués de croix. Véritable pont entre le pop art et la culture de masse, l'artiste transforme chaque projet en objet de collection ultra-convoité, redéfinissant les frontières entre le jouet, la sculpture et la mode. Pour cette collaboration, j'ai imaginé une rencontre explosive entre le confort décomplexé de Crocs et l'univers graphique monumental de KAWS.</p>
+    <div class="kvs reveal">
+      <div><div class="k">Projet</div><div class="v">Projet scolaire</div></div>
+      <div><div class="k">Année</div><div class="v">2024</div></div>
+      <div><div class="k">Scope</div><div class="v">Packaging · Collab</div></div>
+      <div><div class="k">Catégorie</div><div class="v">Street · Pop</div></div>
+    </div>
+  </div>
+  <div class="gallery">
+    <div class="img" style="grid-column:span 8;aspect-ratio:3/2"><img src="a_garder/crocs_kaws_1.jpg" alt="Crocs × KAWS — tote bag terrain"></div>
+    <div class="img contain" style="grid-column:span 4;aspect-ratio:2/3"><img src="a_garder/crocs_kaws_2.png" alt="Crocs × KAWS — personnage KAWS"></div>
+    <div class="img contain" style="grid-column:span 4;aspect-ratio:3/4"><img src="a_garder/crocs_kaws_3.png" alt="Crocs × KAWS — logo planche"></div>
+    <div class="img contain" style="grid-column:span 4;aspect-ratio:3/4"><img src="a_garder/crocs_kaws_4.png" alt="Crocs × KAWS — boîte verte"></div>
+    <div class="img contain" style="grid-column:span 4;aspect-ratio:3/4"><img src="a_garder/crocs_kaws_5.png" alt="Crocs × KAWS — poster"></div>
+  </div>
+</article>
+
+<!-- ============================ PROJECT 06 ============================ -->
+<article class="project" id="proj-06">
+  <div class="header">
+    <span class="idx">06 / 10</span>
+    <span class="cat">Packaging · Illustration</span>
+    <h3 class="title reveal">Le Chocolat des Français.</h3>
+  </div>
+  <div class="intro">
+    <p class="desc reveal">Le Chocolat des Français est une marque audacieuse qui a révolutionné les codes de la chocolaterie traditionnelle en mariant l'art à la gourmandise. Chaque tablette devient un objet de collection au style pop et humoristique. J'ai imaginé le design d'une tablette inédite qui s'approprie les codes graphiques audacieux et colorés de la marque.</p>
+    <div class="kvs reveal">
+      <div><div class="k">Client</div><div class="v">Le Chocolat des Français</div></div>
+      <div><div class="k">Année</div><div class="v">2024</div></div>
+      <div><div class="k">Scope</div><div class="v">Packaging · Illustration</div></div>
+      <div><div class="k">Catégorie</div><div class="v">Alimentaire</div></div>
+    </div>
+  </div>
+  <div class="gallery">
+    <div class="img bare" style="grid-column:span 7;aspect-ratio:5/7"><img src="a_garder/chocolat_1.png" alt="Chocolat des Français — dieline"></div>
+    <div class="img" style="grid-column:span 5;aspect-ratio:3/4"><img src="a_garder/chocolat_3.jpeg" alt="Chocolat des Français — tablette en main"></div>
+    <div class="img bare" style="grid-column:span 12;aspect-ratio:12/5"><img src="a_garder/chocolat_2_trim.png" alt="Chocolat des Français — étiquette" style="padding:60.0273px"></div>
+  </div>
+</article>
+
+<!-- ============================ PROJECT 07 ============================ -->
+<article class="project" id="proj-07">
+  <div class="header">
+    <span class="idx">07 / 10</span>
+    <span class="cat">Typographie · Création</span>
+    <h3 class="title reveal">Galbée Arrondie.</h3>
+  </div>
+  <div class="intro">
+    <p class="desc reveal">J'ai conçu une typographie originale, de son dessin initial jusqu'à sa mise en forme dans un spécimen typographique complet. Ce projet m'a permis d'approfondir le dessin de lettres, la cohérence d'un système typographique et la valorisation d'une fonte par une mise en page éditoriale. Après une phase de recherches graphiques et d'essais à la main, j'ai défini une direction formelle précise — rythme, proportions, contrastes — avec une attention particulière portée à la lisibilité et à la personnalité de la fonte.</p>
+    <div class="kvs reveal">
+      <div><div class="k">Projet</div><div class="v">Spécimen</div></div>
+      <div><div class="k">Année</div><div class="v">2025</div></div>
+      <div><div class="k">Scope</div><div class="v">Type design</div></div>
+      <div><div class="k">Catégorie</div><div class="v">Éditorial</div></div>
+    </div>
+  </div>
+  <div class="gallery">
+    <div class="img bare" style="grid-column:span 6;aspect-ratio:5/7"><img src="a_garder/galbee_1_trim.png" alt="Galbée Arrondie — affiche spécimen" style="padding:53px"></div>
+    <div class="img bare" style="grid-column:span 6;aspect-ratio:5/7"><img src="a_garder/galbee_2_trim.png" alt="Galbée Arrondie — spécimen typographique" style="padding:53px"></div>
+  </div>
+</article>
+
+<!-- ============================ PROJECT 08 ============================ -->
+<article class="project" id="proj-08">
+  <div class="header">
+    <span class="idx">08 / 10</span>
+    <span class="cat">Institution · Édition</span>
+    <h3 class="title reveal">Ma Petite Française.</h3>
+  </div>
+  <div class="intro">
+    <p class="desc reveal">Marque qui célèbre l'authenticité et le terroir à travers des produits pensés pour les moments de partage du quotidien. Pour la nouvelle gamme de bières, j'ai conçu une identité visuelle qui transpose l'élégance et la fraîcheur de la marque dans l'univers brassicole. Ce travail sur les étiquettes a été pensé pour refléter un savoir-faire artisanal et local, tout en conservant l'esprit chic et décontracté qui définit l'ADN de la maison.</p>
+    <div class="kvs reveal">
+      <div><div class="k">Client</div><div class="v">Ma Petite Française</div></div>
+      <div><div class="k">Année</div><div class="v">2024</div></div>
+      <div><div class="k">Scope</div><div class="v">Identité · Packaging</div></div>
+      <div><div class="k">Catégorie</div><div class="v">Brasserie</div></div>
+    </div>
+  </div>
+  <div class="gallery">
+    <div class="img bare" style="grid-column:span 12;aspect-ratio:21/9"><img src="a_garder/biere_1.png" alt="Ma Petite Française — étiquettes panorama" style="padding:45px"></div>
+    <div class="img" style="grid-column:span 12;aspect-ratio:16/7"><img src="a_garder/biere_3.png" alt="Ma Petite Française — scène bière" style="width:700px;height:480px;object-fit:fill;margin:auto"></div>
+    <div class="img bare" style="grid-column:span 12;aspect-ratio:21/9"><img src="a_garder/biere_2.png" alt="Ma Petite Française — étiquette Madeleine" style="padding:45px"></div>
+    <div class="img" style="grid-column:span 6;aspect-ratio:3/2"><img src="a_garder/biere_4.png" alt="Ma Petite Française — bouteille 1"></div>
+    <div class="img" style="grid-column:span 6;aspect-ratio:3/2"><img src="a_garder/biere_5.png" alt="Ma Petite Française — bouteille 2"></div>
+    <div class="img dark" style="grid-column:span 12;aspect-ratio:3/2"><img src="a_garder/biere_6.png" alt="Ma Petite Française — mise en scène fond sombre" style="padding:120px"></div>
+  </div>
+</article>
+
+<!-- ============================ PROJECT 09 ============================ -->
+<article class="project" id="proj-09">
+  <div class="header">
+    <span class="idx">09 / 10</span>
+    <span class="cat">3D · Motion</span>
+    <h3 class="title reveal">Scène 3D Blender.</h3>
+  </div>
+  <div class="intro">
+    <p class="desc reveal">Modélisation et rendu d’une scène intérieure en 3D réalisée sur Blender. Le projet explore la lumière naturelle et artificielle à travers deux ambiances distinctes — une version diurne lumineuse et une version nocturne éclairée aux lampes. Un travail sur la cohérence des matériaux, les textures et le cadrage.</p>
+    <div class="kvs reveal">
+      <div><div class="k">Projet</div><div class="v">Scolaire</div></div>
+      <div><div class="k">Année</div><div class="v">2025</div></div>
+      <div><div class="k">Scope</div><div class="v">3D · Rendu</div></div>
+      <div><div class="k">Catégorie</div><div class="v">Motion · 3D</div></div>
+    </div>
+  </div>
+  <div class="gallery">
+    <div class="img" style="grid-column:span 12;aspect-ratio:16/9"><img src="a_garder/scene3d_jour.png" alt="Scène 3D — version diurne"></div>
+    <div class="img" style="grid-column:span 12;aspect-ratio:16/9"><img src="a_garder/scene3d_nuit.png" alt="Scène 3D — version nocturne" style="padding:0px"></div>
+  </div>
+</article>
+
+<!-- ============================ PROJECT 10 ============================ -->
+<article class="project" id="proj-10">
+  <div class="header">
+    <span class="idx">10 / 10</span>
+    <span class="cat">Institution · Print</span>
+    <h3 class="title reveal">SIC Mag — Pubs internes.</h3>
+  </div>
+  <div class="intro">
+    <p class="desc reveal">Dans le cadre de mon alternance au Conseil National de l’Ordre des Experts-Comptables, j’ai conçu des pubs internes pour la revue SIC Mag. Ces visuels print, destinés aux membres de l’Ordre, déclinent la charte institutionnelle tout en apportant clarion et lisibilité à des contenus techniques.</p>
+    <div class="kvs reveal">
+      <div><div class="k">Client</div><div class="v">CNOEC</div></div>
+      <div><div class="k">Année</div><div class="v">2025–2026</div></div>
+      <div><div class="k">Scope</div><div class="v">Print · Édition</div></div>
+      <div><div class="k">Catégorie</div><div class="v">Institution</div></div>
+    </div>
+  </div>
+  <div class="gallery">
+    <div class="img" style="grid-column:span 12;aspect-ratio:4/3"><img src="a_garder/sic_pub_1_new.png" alt="SIC Mag — pub interne IA"></div>
+    <div class="img" style="grid-column:span 12;aspect-ratio:4/3"><img src="a_garder/sic_pub_2_new.png" alt="SIC Mag — pub interne SIC"></div>
+  </div>
+</article>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="inner">
+    <div>
+      <h2 class="reveal">Prenons<br>contact.</h2>
+      <p style="margin-top:24px;font-size:16px;color:var(--ink);max-width:40ch" class="reveal">À la recherche d'une alternance en Master pour la rentrée 2026. Disponible pour échanger sur vos projets d'identité, d'édition ou de packaging.</p>
+    </div>
+    <div class="side reveal">
+      <a href="mailto:o.luchini@gmail.com"><span>Email</span>o.luchini@gmail.com →</a>
+      <a href="tel:+33783877666"><span>Téléphone</span>+33 7 83 87 76 66 →</a>
+      <a href="https://www.behance.net/olivialuchini" target="_blank" rel="noreferrer"><span>Behance</span>/olivialuchini →</a>
+      <a href="cv.html"><span>CV</span>Voir le CV →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Olivia Luchini</span>
+  <span>Paris · 2026</span>
+  <span>oli.luchini@gmail.com</span>
+</footer>
+
+<div class="progress"><div class="bar" id="progress-bar"></div></div>
+
+<script>
+// ===== Reveal on scroll
+const io = new IntersectionObserver((entries)=>{
+  for(const e of entries){
+    if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+  }
+},{threshold:0.12});
+document.querySelectorAll('.reveal, .gallery .img').forEach(el=>io.observe(el));
+
+// ===== Progress bar
+const bar = document.getElementById('progress-bar');
+window.addEventListener('scroll',()=>{
+  const h = document.documentElement;
+  const p = h.scrollTop / (h.scrollHeight - h.clientHeight);
+  bar.style.width = (p*100)+'%';
+},{passive:true});
+
+// ===== Hero ball parallax
+const ball = document.getElementById('hero-ball');
+window.addEventListener('scroll',()=>{
+  const y = window.scrollY;
+  if(ball){
+    const t = Math.min(y/800,1);
+    ball.style.transform = `translate3d(${-y*0.1}px, ${y*0.35}px, 0) scale(${1 - t*0.2})`;
+  }
+},{passive:true});
+</script>
+
+</body>
+</html>

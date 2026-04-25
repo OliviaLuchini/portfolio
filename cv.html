@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>CV — Olivia Luchini</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700&family=Yeseva+One&display=swap" rel="stylesheet">
+<style>
+@font-face{
+  font-family:'TAN-HEADLINE';
+  src: local('TAN-HEADLINE'), local('TAN Headline'), local('TAN-HEADLINE Regular');
+  font-display:swap;
+}
+:root{
+  --cream:#fcf4ec;
+  --blue:#98b6ec;
+  --ink:#000000;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--cream);color:var(--ink);font-family:'Darker Grotesque',sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html{scroll-behavior:smooth}
+body{line-height:1.45;font-size:17px}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+.display{font-family:'TAN-HEADLINE','Yeseva One',serif;font-weight:400;color:var(--blue);letter-spacing:-0.01em;line-height:.95}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:80;display:flex;justify-content:space-between;align-items:center;padding:22px 40px;background:var(--cream);border-bottom:1px solid rgba(0,0,0,0.06)}
+.nav .brand{font-family:'TAN-HEADLINE','Yeseva One',serif;font-size:20px;color:var(--blue)}
+.nav ul{list-style:none;display:flex;gap:28px;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;font-weight:500}
+.nav ul a{color:var(--ink);transition:color .2s}
+.nav ul a:hover{color:var(--blue)}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;padding:120px 40px 60px;display:flex;flex-direction:column;overflow:hidden;background:var(--cream)}
+.hero .year{position:absolute;top:92px;right:40px;font-size:13px;color:var(--blue);letter-spacing:0.2em;font-weight:500}
+.hero-top{position:relative;z-index:3;display:flex;flex-direction:column;gap:22px;margin-top:8px}
+.hero .role-strip{display:flex;align-items:center;gap:16px;font-size:14px;letter-spacing:0.24em;text-transform:uppercase;color:var(--blue);font-weight:500}
+.hero .role-strip .line{height:1px;width:80px;background:var(--blue)}
+.hero h1{font-family:'TAN-HEADLINE','Yeseva One',serif;font-weight:400;font-size:clamp(100px,16vw,280px);line-height:.86;letter-spacing:-0.03em;color:var(--blue)}
+.hero .ball{position:absolute;width:32vmin;height:32vmin;border-radius:50%;background:var(--blue);right:6vmin;top:26vh;z-index:1}
+.hero-bottom{display:flex;justify-content:space-between;align-items:flex-end;margin-top:auto;padding-top:60px;gap:40px;position:relative;z-index:3;flex-wrap:wrap}
+.hero-bottom .intro{max-width:44ch;font-size:18px;line-height:1.5;color:var(--ink)}
+.hero .meta-grid{display:grid;grid-template-columns:repeat(4,minmax(0,160px));gap:28px}
+.hero .meta-grid .cell .label{color:var(--blue);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:6px;font-weight:500;display:flex;align-items:center;gap:6px}
+.hero .meta-grid .cell .label::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--blue)}
+.hero .meta-grid .cell .val{font-family:'TAN-HEADLINE','Yeseva One',serif;font-size:20px;color:var(--blue)}
+
+/* QUOTE */
+.quote{position:relative;min-height:60vh;display:flex;align-items:center;justify-content:center;padding:120px 40px;background:var(--cream);border-top:1px solid rgba(0,0,0,0.06);text-align:center}
+.quote .eyebrow{position:absolute;top:60px;left:50%;transform:translateX(-50%);font-size:12px;letter-spacing:0.32em;text-transform:uppercase;color:var(--blue);font-weight:500}
+.quote .big{font-family:'TAN-HEADLINE','Yeseva One',serif;font-weight:400;font-size:clamp(40px,5.5vw,96px);letter-spacing:-0.02em;line-height:1.05;max-width:22ch;color:var(--blue)}
+
+/* TIMELINE */
+.timeline-section{position:relative;padding:160px 40px 200px;background:var(--cream);border-top:1px solid rgba(0,0,0,0.06)}
+.tl-head{max-width:1400px;margin:0 auto 80px;display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
+.tl-head h2{font-family:'TAN-HEADLINE','Yeseva One',serif;font-weight:400;font-size:clamp(56px,8vw,140px);letter-spacing:-0.03em;line-height:.9;color:var(--blue)}
+.tl-head .side{font-size:14px;color:var(--ink);max-width:320px;text-align:right;line-height:1.5}
+
+.tl{max-width:1400px;margin:0 auto;position:relative;padding-left:40px}
+.tl::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:1px;background:rgba(0,0,0,0.15)}
+.tl-progress{position:absolute;left:8px;top:0;width:1px;background:var(--blue);height:0%;transition:height .15s linear}
+.tl .item{position:relative;padding:32px 0 48px;display:grid;grid-template-columns:180px 1fr auto;gap:40px;border-bottom:1px solid rgba(0,0,0,0.1);opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1)}
+.tl .item.in{opacity:1;transform:translateY(0)}
+.tl .item::before{content:"";position:absolute;left:-38px;top:42px;width:16px;height:16px;border-radius:50%;background:var(--cream);border:2px solid var(--blue);transition:all .4s}
+.tl .item.in::before{background:var(--blue);transform:scale(1.15)}
+.tl .item .date{font-family:'Darker Grotesque',sans-serif;font-weight:500;font-size:14px;letter-spacing:0.08em;color:var(--blue)}
+.tl .item .body h3{font-family:'TAN-HEADLINE','Yeseva One',serif;font-weight:400;font-size:32px;line-height:1.05;letter-spacing:-0.02em;color:var(--blue);margin-bottom:8px}
+.tl .item .body .org{font-size:14px;color:var(--ink);margin-bottom:14px;font-weight:500}
+.tl .item .body .desc{font-size:16px;line-height:1.6;color:var(--ink);max-width:60ch}
+.tl .item .tag{align-self:start;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);border:1px solid var(--blue);padding:4px 12px;border-radius:999px;white-space:nowrap;font-weight:500}
+
+/* GRID */
+.grid-sec{background:var(--cream);padding:160px 40px;position:relative;border-top:1px solid rgba(0,0,0,0.06)}
+.grid-sec h2{font-family:'TAN-HEADLINE','Yeseva One',serif;font-weight:400;font-size:clamp(56px,8vw,140px);letter-spacing:-0.03em;line-height:.9;color:var(--blue);max-width:1400px;margin:0 auto 80px}
+.gg{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.gg .card{background:var(--cream);border:1px solid var(--blue);border-radius:24px;padding:40px}
+.gg .card h4{font-family:'TAN-HEADLINE','Yeseva One',serif;font-weight:400;font-size:28px;color:var(--blue);margin-bottom:28px;display:flex;align-items:center;gap:12px}
+.gg .card h4::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--blue)}
+.gg .skill-list{list-style:none;display:flex;flex-direction:column}
+.gg .skill-list li{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid rgba(0,0,0,0.1);font-family:'TAN-HEADLINE','Yeseva One',serif;font-weight:400;font-size:22px;color:var(--blue)}
+.gg .skill-list li:last-child{border-bottom:none}
+.gg .skill-list li .n{font-family:'Darker Grotesque',sans-serif;font-weight:500;font-size:12px;color:var(--blue);letter-spacing:0.12em}
+.gg .skill-list li .bar{height:2px;background:rgba(152,182,236,0.3);width:140px;position:relative;border-radius:2px;overflow:hidden}
+.gg .skill-list li .bar::after{content:"";position:absolute;left:0;top:0;bottom:0;width:var(--lvl,60%);background:var(--blue)}
+.gg .tools{display:flex;flex-wrap:wrap;gap:10px}
+.gg .tools span{border:1px solid var(--blue);padding:8px 16px;border-radius:999px;font-size:13px;color:var(--ink);font-weight:500;transition:all .3s}
+.gg .tools span:hover{background:var(--blue);color:var(--cream)}
+.gg .rows{display:flex;flex-direction:column;gap:20px}
+.gg .rows .r{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:18px;border-bottom:1px solid rgba(0,0,0,0.1);gap:20px}
+.gg .rows .r .t{font-family:'TAN-HEADLINE','Yeseva One',serif;font-weight:400;font-size:22px;color:var(--blue)}
+.gg .rows .r .y{font-family:'Darker Grotesque',sans-serif;font-weight:500;font-size:13px;color:var(--blue);letter-spacing:0.1em;white-space:nowrap}
+.gg .rows .r .org{font-size:13px;color:var(--ink);margin-top:4px;font-weight:400}
+
+/* CONTACT */
+.contact{position:relative;padding:160px 40px;background:var(--cream);border-top:1px solid rgba(0,0,0,0.06)}
+.contact .inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.contact h2{font-family:'TAN-HEADLINE','Yeseva One',serif;font-weight:400;font-size:clamp(56px,6vw,120px);letter-spacing:-0.02em;line-height:.95;color:var(--blue)}
+.contact .side a{display:flex;justify-content:space-between;align-items:center;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.15);font-family:'TAN-HEADLINE','Yeseva One',serif;font-weight:400;font-size:24px;color:var(--blue);transition:padding .3s}
+.contact .side a:hover{padding-left:20px}
+.contact .side a span{font-size:12px;font-family:'Darker Grotesque',sans-serif;color:var(--blue);letter-spacing:0.2em;text-transform:uppercase;font-weight:500}
+
+footer{background:var(--cream);padding:32px 40px;display:flex;justify-content:space-between;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink);font-weight:500;border-top:1px solid rgba(0,0,0,0.08)}
+
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+.progress{position:fixed;bottom:0;left:0;right:0;height:2px;z-index:90}
+.progress .bar{height:100%;background:var(--blue);width:0%}
+
+@media (max-width:900px){
+  .nav{padding:14px 18px}
+  .nav ul{gap:14px;font-size:12px}
+  .hero{padding:110px 20px 40px}
+  .hero .meta-grid{grid-template-columns:1fr 1fr}
+  .tl{padding-left:28px}
+  .tl .item{grid-template-columns:1fr;gap:12px}
+  .gg{grid-template-columns:1fr}
+  .contact .inner{grid-template-columns:1fr;gap:40px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="brand">← Olivia Luchini</a>
+  <ul>
+    <li><a href="index.html#top">Accueil</a></li>
+    <li><a href="index.html#works">Projets</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="year">©2026 — CV</div>
+  <div class="hero-top">
+    <div class="role-strip"><span class="line"></span><span>Curriculum Vitae</span></div>
+    <h1>Curriculum</h1>
+  </div>
+  <div class="hero-bottom">
+    <div>
+      <p class="intro reveal">Graphiste · Paris. Bachelor 3ᵉ année à l'ESDAC, en alternance au CNOEC. Un parcours entre projets scolaires, stages et édition institutionnelle.</p>
+    </div>
+    <div class="meta-grid reveal">
+      <div class="cell"><div class="label">Profil</div><div class="val">Étudiante graphiste</div></div>
+      <div class="cell"><div class="label">Formation</div><div class="val">Bachelor 3ᵉ année</div></div>
+      <div class="cell"><div class="label">École</div><div class="val">ESDAC Paris</div></div>
+      <div class="cell"><div class="label">Recherche</div><div class="val">Alternance Master</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="quote">
+  <div class="eyebrow">Profil</div>
+  <p class="big reveal">Passionnée et rigoureuse, je transforme vos concepts en solutions visuelles percutantes.</p>
+</section>
+
+<section class="timeline-section">
+  <div class="tl-head">
+    <h2 class="reveal">Expériences.</h2>
+    <div class="side reveal">Un parcours entre projets scolaires, stages et alternance — au fil de l'édition, de l'identité et du packaging.</div>
+  </div>
+
+  <div class="tl" id="tl">
+    <div class="tl-progress" id="tl-progress"></div>
+
+    <article class="item">
+      <div class="date">11/2025 — 08/2026</div>
+      <div class="body">
+        <h3>Alternance graphiste</h3>
+        <div class="org">Conseil National de l'Ordre des Experts Comptables — CNOEC</div>
+        <p class="desc">Création de print (rapports, brochures) et déclinaison de la charte graphique institutionnelle. Réalisation de visuels et infographies pour les réseaux sociaux et newsletters. Création de visuels print et digitaux.</p>
+      </div>
+      <span class="tag">En cours</span>
+    </article>
+
+    <article class="item">
+      <div class="date">05/2025 — 07/2025</div>
+      <div class="body">
+        <h3>Stagiaire</h3>
+        <div class="org">Salesforce</div>
+        <p class="desc">Soutien aux équipes communication et marketing sur divers projets. Contribution à la préparation du World Tour 2025.</p>
+      </div>
+      <span class="tag">Stage</span>
+    </article>
+
+    <article class="item">
+      <div class="date">2025</div>
+      <div class="body">
+        <h3>Création de site web</h3>
+        <div class="org">Projet scolaire — La Halle Saint Pierre</div>
+        <p class="desc">Création d'une proposition de site web pour La Halle Saint Pierre via Wordpress.</p>
+      </div>
+      <span class="tag">Scolaire</span>
+    </article>
+
+    <article class="item">
+      <div class="date">2024 — 2025</div>
+      <div class="body">
+        <h3>Création de packaging</h3>
+        <div class="org">Projet scolaire — multi-marques</div>
+        <p class="desc">Idéation et création packaging d'une marque de bougies, nouveau packaging « Le Chocolat des Français », identité et packaging d'une marque de pâtes.</p>
+      </div>
+      <span class="tag">Scolaire</span>
+    </article>
+
+    <article class="item">
+      <div class="date">2024 — 2025</div>
+      <div class="body">
+        <h3>Création de supports de communication</h3>
+        <div class="org">Projet scolaire</div>
+        <p class="desc">Création d'affiches pour événements, newsletter pour un évènement fictif, création d'un roman photo.</p>
+      </div>
+      <span class="tag">Scolaire</span>
+    </article>
+
+    <article class="item">
+      <div class="date">11/2024</div>
+      <div class="body">
+        <h3>Création d'identité visuelle</h3>
+        <div class="org">Projet scolaire — librairie</div>
+        <p class="desc">Conception d'un nouveau logo et d'une charte graphique pour une librairie.</p>
+      </div>
+      <span class="tag">Scolaire</span>
+    </article>
+
+    <article class="item">
+      <div class="date">06/2024</div>
+      <div class="body">
+        <h3>Stagiaire graphiste</h3>
+        <div class="org">Vocation CRPE</div>
+        <p class="desc">Infographies en rapport avec le CRPE (concours de professeur des écoles). Travail sur le design des supports de cours à destination des élèves.</p>
+      </div>
+      <span class="tag">Stage</span>
+    </article>
+  </div>
+</section>
+
+<section class="grid-sec">
+  <h2 class="reveal">Compétences.</h2>
+  <div class="gg">
+    <div class="card reveal">
+      <h4>Expertise</h4>
+      <ul class="skill-list">
+        <li><span class="n">01</span>Création d'identité visuelle<span class="bar" style="--lvl:92%"></span></li>
+        <li><span class="n">02</span>Conception de typographie<span class="bar" style="--lvl:80%"></span></li>
+        <li><span class="n">03</span>Mise en page de documents<span class="bar" style="--lvl:95%"></span></li>
+        <li><span class="n">04</span>Création d'illustrations<span class="bar" style="--lvl:78%"></span></li>
+        <li><span class="n">05</span>Webdesign<span class="bar" style="--lvl:70%"></span></li>
+      </ul>
+    </div>
+    <div class="card reveal">
+      <h4>Logiciels</h4>
+      <div class="tools">
+        <span>Illustrator</span><span>InDesign</span><span>Photoshop</span>
+        <span>Lightroom</span><span>After Effects</span><span>Procreate</span>
+        <span>Canva</span><span>WordPress</span><span>Blender</span><span>Claude Design</span>
+      </div>
+    </div>
+    <div class="card reveal">
+      <h4>Formation</h4>
+      <div class="rows">
+        <div class="r">
+          <div>
+            <div class="t">Bachelor Design Graphique</div>
+            <div class="org">ESDAC Paris · 3ᵉ année</div>
+          </div>
+          <div class="y">EN COURS</div>
+        </div>
+        <div class="r">
+          <div>
+            <div class="t">Baccalauréat Littéraire</div>
+            <div class="org">Mention</div>
+          </div>
+          <div class="y">2019 — 2022</div>
+        </div>
+      </div>
+    </div>
+    <div class="card reveal">
+      <h4>Langues</h4>
+      <div class="rows">
+        <div class="r"><div><div class="t">Français</div><div class="org">Langue maternelle</div></div><div class="y">C2</div></div>
+        <div class="r"><div><div class="t">Anglais</div><div class="org">Intermédiaire</div></div><div class="y">B1</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="inner">
+    <div>
+      <h2 class="reveal">Prenons<br>contact.</h2>
+      <p style="margin-top:24px;font-size:16px;color:var(--ink);max-width:40ch" class="reveal">À la recherche d'une alternance en Master pour la rentrée 2026. Disponible pour échanger sur vos projets d'identité, d'édition ou de packaging.</p>
+    </div>
+    <div class="side reveal">
+      <a href="mailto:o.luchini@gmail.com"><span>Email</span>o.luchini@gmail.com →</a>
+      <a href="tel:+33783877666"><span>Téléphone</span>+33 7 83 87 76 66 →</a>
+      <a href="https://www.behance.net/olivialuchini" target="_blank" rel="noreferrer"><span>Behance</span>/olivialuchini →</a>
+      <a href="#"><span>Localisation</span>Conflans Ste Honorine →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="index.html">← Retour au portfolio</a>
+  <span>Olivia Luchini · 2026</span>
+  <span>o.luchini@gmail.com</span>
+</footer>
+
+<div class="progress"><div class="bar" id="pbar"></div></div>
+
+<script>
+const io = new IntersectionObserver((es)=>{
+  for(const e of es){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }
+},{threshold:0.12});
+document.querySelectorAll('.reveal, .tl .item').forEach(el=>io.observe(el));
+
+const pbar = document.getElementById('pbar');
+window.addEventListener('scroll',()=>{
+  const p = document.documentElement.scrollTop / (document.documentElement.scrollHeight - document.documentElement.clientHeight);
+  pbar.style.width = (p*100)+'%';
+},{passive:true});
+
+const ball = document.getElementById('ball');
+window.addEventListener('scroll',()=>{
+  const y = window.scrollY;
+  ball.style.transform = `translate3d(${y*0.1}px, ${y*0.3}px, 0) scale(${1 - Math.min(y/1400,1)*0.15})`;
+},{passive:true});
+
+const tl = document.getElementById('tl');
+const tlProg = document.getElementById('tl-progress');
+window.addEventListener('scroll',()=>{
+  const r = tl.getBoundingClientRect();
+  const vh = window.innerHeight;
+  const total = r.height;
+  const scrolled = Math.min(Math.max(vh*0.5 - r.top, 0), total);
+  tlProg.style.height = ((scrolled/total)*100)+'%';
+},{passive:true});
+</script>
+
+</body>
+</html>
